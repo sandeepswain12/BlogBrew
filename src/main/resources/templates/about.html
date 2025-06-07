@@ -1,0 +1,45 @@
+<!doctype html>
+<html
+        lang="en"
+        th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | BlogBrew</title>
+</head>
+<body>
+<div id="content">
+  <section class="bg-white dark:bg-gray-900 mx-auto max-w-screen-xl py-16 px-4 sm:px-6 lg:px-8 pt-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">About BlogBrew</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+        Welcome to <span class="text-blue-600 font-semibold">BlogBrew</span> — your creative hub for expressing thoughts, sharing knowledge, and connecting with a vibrant community of writers and readers. Whether you're a seasoned blogger or just getting started, BlogBrew gives you the tools to craft beautiful content with ease.
+      </p>
+      <p class="text-gray-600 dark:text-gray-300 mb-6">
+        Our platform is built with simplicity and performance in mind using modern technologies like Java Spring Boot and Tailwind CSS. We believe in open dialogue, thoughtful ideas, and empowering voices from around the world.
+      </p>
+      <p class="text-gray-600 dark:text-gray-300">
+        Start brewing your stories today, and let your voice be heard.
+      </p>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Simple & Fast</h3>
+        <p class="text-gray-700 dark:text-gray-400">Craft blogs with a clean, responsive editor and publish in seconds.</p>
+      </div>
+      <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Community-Driven</h3>
+        <p class="text-gray-700 dark:text-gray-400">Read, comment, and interact with authors and like-minded readers.</p>
+      </div>
+      <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Secure & Scalable</h3>
+        <p class="text-gray-700 dark:text-gray-400">Built with Java Spring Boot to ensure high performance and security.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

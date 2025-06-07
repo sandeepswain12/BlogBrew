@@ -1,0 +1,45 @@
+<!doctype html>
+<html
+        lang="en"
+        th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- Container -->
+<div th:object="${blog}" id="content" class="max-w-4xl mx-auto mt-10 px-4 py-10">
+
+    <!-- Blog Title -->
+    <h1 class="text-4xl font-bold mb-4 text-blue-700" th:text="${blog.title}">
+        Blog Post Title Goes Here
+    </h1>
+
+     Blog Meta Info
+    <div  class="mb-6 text-sm text-gray-500 dark:text-gray-400">
+        Posted by <span class="font-medium text-gray-700 dark:text-white" th:text="${blog.user.name}">Author Name</span>
+<!--        on <span th:text="${#dates.format(blog.createdAt, 'MMMM d, yyyy')}">June 3, 2025</span>-->
+    </div>
+
+    <!-- Blog Content -->
+    <div class="prose max-w-none prose-blue dark:prose-invert">
+        <p th:text="${blog.content}">
+            Lorem ipsum dolor sit amet...
+        </p>
+    </div>
+
+
+    <!-- Back Button -->
+    <div class="mt-10">
+        <a data-th-href="@{'/blogs'}" class="inline-block text-sm text-blue-600 hover:underline">
+            ← Back to My Blogs
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

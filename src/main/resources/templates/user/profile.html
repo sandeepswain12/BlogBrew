@@ -1,0 +1,45 @@
+<!doctype html>
+<html
+        lang="en"
+        th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-th-text="${loggedInUser.name}+' |  BlogBrew'">profile</title>
+</head>
+<body>
+
+<div id="content" class="max-w-screen-xl mx-auto mt-10 py-10 px-4">
+
+    <!-- User Info -->
+    <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6 mb-10 text-center">
+        <h1 class="text-2xl font-semibold">Welcome, <span th:text="${loggedInUser.name}" class="text-blue-600 dark:text-blue-400">John Doe</span></h1>
+        <p th:text="${loggedInUser.email}" class="text-gray-600 dark:text-gray-400">Email: john@example.com</p>
+    </div>
+
+    <div>
+        <a th:href="@{'/user/blog/add'}" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-6 py-2 rounded">Create Blog</a>
+    </div>
+
+    <!-- Blog List -->
+    <div class="space-y-6 mt-10">
+        <h2 class="text-xl font-semibold mb-4">Your Blogs</h2>
+
+        <!-- Single Blog Card -->
+        <div th:each="blog : ${blogs}" class="bg-white dark:bg-gray-800 p-6 rounded shadow">
+            <h3 th:text="${blog.title}" class="text-lg font-bold">Blog Title 1</h3>
+<!--            <p class="text-gray-600 dark:text-gray-400 mb-2">Category: Tech</p>-->
+            <p th:text="${blog.content}" class="text-gray-700 dark:text-gray-300 mb-4">This is a short excerpt from your blog post...</p>
+            <div class="flex space-x-4">
+                <a th:href="@{'/user/blog/edit/'+ ${blog.id}}" class="text-blue-600 hover:underline dark:text-blue-400">Edit</a>
+                <a th:href="@{'/user/blog/delete/'+ ${blog.id}}" class="text-red-600 hover:underline dark:text-red-400">Delete</a>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+</body>
+</html>

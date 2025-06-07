@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!doctype html>
+<html
+class="light"
+lang="en"
+th:fragment="parent(content,title,script)"
+xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-th-replace="${title}">Base page</title>
+  <link rel="icon" th:href="@{/img/blogbrew.png}" type="image/png">
+  <link href="/css/output.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-50 text-black dark:text-white dark:bg-gray-900">
+<div th:if="${loggedInUser}">
+  <div data-th-replace="~{user/user_navbar::user-navbar}"></div>
+</div>
+<div th:unless="${loggedInUser}">
+  <div data-th-replace="~{navbar::navbar}"></div>
+</div>
+<div>
+  <section data-th-replace="${content}"></section>
+</div>
+<div>
+  <div data-th-replace="~{footer}"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</body>
+</html>

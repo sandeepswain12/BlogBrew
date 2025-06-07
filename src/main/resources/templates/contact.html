@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | BlogBrew</title>
+</head>
+<body>
+<section id="content" class="px-6 py-12 bg-gray-50 dark:bg-gray-900">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Contact Us</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300 mb-10">
+      Got questions, suggestions, or just want to say hello? We'd love to hear from you.
+    </p>
+
+    <form class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-8 space-y-6 text-left">
+      <div>
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Your Name</label>
+        <input type="text" id="name" name="name" required
+               class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-md bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" />
+      </div>
+
+      <div>
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Email Address</label>
+        <input type="email" id="email" name="email" required
+               class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-md bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" />
+      </div>
+
+      <div>
+        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Message</label>
+        <textarea id="message" name="message" rows="5" required
+                  class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-md bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit"
+                class="inline-flex items-center px-6 py-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 rounded-lg text-sm font-medium">
+          Send Message
+        </button>
+      </div>
+    </form>
+
+    <div class="mt-10 text-sm text-gray-500 dark:text-gray-400">
+      Or email us directly at <a href="mailto:support@blogbrew.com" class="text-blue-600 dark:text-blue-400 hover:underline">support@blogbrew.com</a>
+    </div>
+  </div>
+</section>
+</body>
+</html>
