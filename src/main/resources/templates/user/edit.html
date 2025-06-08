@@ -25,7 +25,7 @@
       <textarea th:field="*{content}" class="w-full border border-gray-300 dark:border-gray-600 rounded px-4 py-2 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100" rows="5" placeholder="Write your blog..."></textarea>
       <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="text-red-600 "></p>
     </div>
-    <button type="submit" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-6 py-2 rounded">Create Blog</button>
+    <button type="submit" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-6 py-2 rounded">Update Blog</button>
     <a th:href="@{'/user/profile'}" class="bg-gray-600 hover:bg-gray-700 dark:bg-gray-500 dark:hover:bg-gray-600 text-white px-6 py-2 rounded">Back</a>
   </form>
 </div>
