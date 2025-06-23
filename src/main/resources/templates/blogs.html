@@ -1,7 +1,7 @@
 <!doctype html>
 <html
-lang="en"
-th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+        lang="en"
+        th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
 >
 <head>
     <meta charset="UTF-8">
@@ -10,21 +10,29 @@ th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
 </head>
 <body>
 <section id="content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  px-4 mt-14 mx-auto max-w-screen-xl">
-    <div th:each="blog : ${blogs}" class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+    <div th:each="blog : ${blogs}"
+         class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
             <!-- Optional image -->
-<!--            <img class="rounded-t-lg" src="/images/blog-placeholder.jpg" alt="Blog Image" />-->
+            <!--            <img class="rounded-t-lg" src="/images/blog-placeholder.jpg" alt="Blog Image" />-->
         </a>
         <div class="p-5">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white
             overflow-hidden text-ellipsis whitespace-nowrap"
                 th:text="${blog.title}">Blog Title</h5>
 
-            Posted by <span class="font-medium text-gray-700 dark:text-white" th:text="${blog.user.name}">Author Name</span>
+            Posted by <span class="font-medium text-gray-700 dark:text-white"
+                            th:text="${blog.user.name}">Author Name</span>
 
+            <!--            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400-->
+            <!--          overflow-hidden text-ellipsis max-h-24 line-clamp-3"-->
+            <!--               th:text="${blog.content}">Blog content...</p>-->
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400
-          overflow-hidden text-ellipsis max-h-24 line-clamp-3"
-               th:text="${blog.content}">Blog content...</p>
+                overflow-hidden text-ellipsis max-h-24 line-clamp-3"
+               th:text="${blog.content.length() > 100 ? #strings.substring(blog.content, 0, 100) + '...' : blog.content}">
+                Blog preview...
+            </p>
+
             <a th:href="@{'/blogview/' + ${blog.id}}"
                class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more
@@ -37,7 +45,6 @@ th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
         </div>
     </div>
 </section>
-
 
 
 </body>

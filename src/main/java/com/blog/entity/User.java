@@ -30,7 +30,8 @@ public class User implements UserDetails {
     private boolean emailVerified = false;
     private boolean phoneVerified  = false;
     @Enumerated(value = EnumType.STRING)
-    private Providers providers;
+    private Providers providers = Providers.SELF;
+    private String providerUserId;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY ,orphanRemoval = true)
     private List<Blog> blogs = new ArrayList<Blog>();
     @ElementCollection(fetch = FetchType.EAGER)

@@ -3,6 +3,7 @@ package com.blog.controller;
 import com.blog.dtos.BlogDto;
 import com.blog.entity.Blog;
 import com.blog.entity.User;
+import com.blog.helper.Helper;
 import com.blog.helper.Message;
 import com.blog.helper.MessageType;
 import com.blog.service.BlogService;
@@ -18,7 +19,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -49,8 +49,7 @@ public class BlogController {
                     .build());
             return "user/createblog";
         }
-        String userName = authentication.getName();
-        User user = userService.getUserByEmail(userName);
+        User user = userService.getUserByEmail(Helper.getEmailOfLoggedInUser(authentication));
         Blog blog = new Blog();
         blog.setTitle(blogDto.getTitle());
         blog.setContent(blogDto.getContent());
@@ -62,14 +61,6 @@ public class BlogController {
                         .type(MessageType.green)
                         .build());
         return "redirect:/user/blog/add";
-    }
-
-    @GetMapping("/profile")
-    public String userBlogs(Model model, Authentication authentication) {
-        User user = userService.getUserByEmail(authentication.getName());
-        List<Blog> blogs = blogService.getByUser(user);
-        model.addAttribute("blogs",blogs);
-        return "user/profile";
     }
 
     @GetMapping("/blog/edit/{id}")

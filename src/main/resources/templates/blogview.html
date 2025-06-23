@@ -21,14 +21,17 @@
      Blog Meta Info
     <div  class="mb-6 text-sm text-gray-500 dark:text-gray-400">
         Posted by <span class="font-medium text-gray-700 dark:text-white" th:text="${blog.user.name}">Author Name</span>
-<!--        on <span th:text="${#dates.format(blog.createdAt, 'MMMM d, yyyy')}">June 3, 2025</span>-->
+        on <span th:text="${dateAndTimeFormated}">20-06-2025 04:14 PM</span>
     </div>
 
     <!-- Blog Content -->
-    <div class="prose max-w-none prose-blue dark:prose-invert">
-        <p th:text="${blog.content}">
-            Lorem ipsum dolor sit amet...
-        </p>
+<!--    <div class="prose max-w-none prose-blue dark:prose-invert">-->
+<!--        <p th:text="${blog.content}">-->
+<!--            Lorem ipsum dolor sit amet...-->
+<!--        </p>-->
+<!--    </div>-->
+    <div class="prose max-w-none prose-blue dark:prose-invert whitespace-pre-line"
+         th:text="${blog.content}">
     </div>
 
 

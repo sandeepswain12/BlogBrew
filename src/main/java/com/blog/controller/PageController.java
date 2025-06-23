@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -33,6 +34,7 @@ public class PageController {
     public String index() {
         return "redirect:/blogs";
     }
+
     @GetMapping("/blogs")
     public String blogs(Model model) {
         List<Blog> blogs = blogService.getAll();
@@ -46,7 +48,7 @@ public class PageController {
         return "signup";
     }
     @PostMapping("/signup")
-    public String signupProcessing(@Valid @ModelAttribute UserDto userDto, BindingResult bindingResult, HttpSession session) {
+    public String signupProcessing(@Valid @ModelAttribute UserDto userDto,BindingResult bindingResult, HttpSession session) {
         if (bindingResult.hasErrors()) {
             bindingResult.getAllErrors().forEach(error -> logger.info(error.toString()));
             session.setAttribute("message", Message.builder()
@@ -85,7 +87,9 @@ public class PageController {
     @GetMapping("/blogview/{id}")
     public String blogview(@PathVariable String id, Model model) {
         Blog blog = blogService.getUserWithId(id);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm a");
         model.addAttribute("blog", blog);
+        model.addAttribute("dateAndTimeFormated", blog.getCreatedDate().format(formatter));
         return "blogview";
     }
 }
